@@ -28,15 +28,29 @@ function displayData(data, zip) {
   results.innerHTML = "";
 
   const filteredData = data.filter(function(person) {
-    return person.zip === zip;
+    if (searchInput.value.length != 0) {
+      console.log("input length:");
+      console.log(searchInput.value.length);
+      return person.zip === zip;
+    }
   });
+
+
+  if (filteredData.length == 0 && (searchInput.value.length) != 0) {
+    const div = document.createElement("div");
+    
+    const firstName = document.createElement("p");
+    firstName.innerText = "no results found for " + searchInput.value;
+    div.appendChild(firstName);
+    console.log("none!");
+    results.appendChild(div);
+  }
 
   filteredData.forEach(function(person) {
     const div = document.createElement("div");
+    div.className = "info-box"; 
     div.classList.add("person");
     console.log("here!")
-    console.log(person)
-    console.log(person.first)
     const firstName = document.createElement("p");
     firstName.innerText = "First Name: " + person.first;
     div.appendChild(firstName);
@@ -55,6 +69,7 @@ function displayData(data, zip) {
       window.location.href = "mailto:" + person.email;
     });
     div.appendChild(button);
+
 
     results.appendChild(div);
   });

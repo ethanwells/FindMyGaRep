@@ -1,3 +1,7 @@
+html {
+  background-color: #e8e8e8;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -5,44 +9,141 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.title {
-  font-size: 36px;
-  margin-top: 50px;
+
+input {
+ border: none;
+ border-radius: 10px;
+ padding: 15px;
+ background-color: #e8e8e8;
+ box-shadow: 6px 6px 12px #ffffff,
+             -6px -6px 12px #c5c5c5;
+ font-size: medium;
+ font-weight: bold;
+ width: 50%;
+ max-width: 200px;
 }
 
-input[type="text"] {
-  width: 500px;
-  height: 50px;
-  font-size: 20px;
-  padding: 10px;
-  margin-top: 50px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+input:focus {
+ outline-color: white;
+ place-content: "Enter your message!";
 }
 
 button {
-  width: 100px;
-  height: 50px;
-  font-size: 20px;
-  margin-left: 10px;
-  margin-top: 50px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  --bg: #000;
+  --hover-bg: #ff90e8;
+  --hover-text: #000;
+  color: #e8e8e8;
+  border: 1px solid var(--bg);
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+
 }
+
+button:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem,-0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+button:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+.info-box {
+  animation: fadeInAnimation ease 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+
 
 .person {
   margin-top: 50px;
   width: 500px;
   padding: 20px;
   border: 2px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
+  box-shadow: 6px 6px 12px #ffffff,
+             -6px -6px 12px #c5c5c5;
 }
 
 .person p {
   margin: 0;
   font-size: 20px;
 }
+
+.person:hover {
+ border-color: white;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 36px;
+  margin-top: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.loader, .title {
+  display: inline-block;
+}
+
+
+.loader {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 35px;
+  margin: 0 5px;
+  animation-delay: .25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: .5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: #ffff;
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
+}
+
+
+
