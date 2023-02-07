@@ -1,4 +1,4 @@
-/*html {
+html {
   background-color: #e8e8e8;
 }
 
@@ -7,22 +7,7 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: Arial, sans-serif;
-  border: 3px solid green;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
 }
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  border: 3px solid red;
-  position: absolute;
-  top: 30vh;
-}
-
 
 
 input {
@@ -34,7 +19,7 @@ input {
              -6px -6px 12px #c5c5c5;
  font-size: medium;
  font-weight: bold;
- width: 300px;
+ width: 50%;
  max-width: 200px;
 }
 
@@ -82,4 +67,85 @@ button:active {
     100% {
         opacity: 1;
      }
-}*/
+}
+
+
+
+.person {
+  margin-top: 50px;
+  width: 500px;
+  max-width: 100%;
+  position:  relative;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 6px 6px 12px #ffffff,
+             -6px -6px 12px #c5c5c5;
+}
+
+.person p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.person:hover {
+  border-color: white;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 36px;
+  margin-top: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.loader, .title {
+  display: inline-block;
+}
+
+
+.loader {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 35px;
+  margin: 0 5px;
+  animation-delay: .25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: .5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: #ffff;
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
+}
+
+
+
