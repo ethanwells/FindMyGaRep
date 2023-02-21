@@ -1,5 +1,6 @@
 html {
   background-color: #e8e8e8;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -69,10 +70,27 @@ button:active {
   box-shadow: none;
 }
 
+#yourrep {
+  margin-bottom: -5px;
+  margin-top: -5px;
+  text-decoration: underline;
+  text-decoration-color: #grey; 
+}
+
+#emailButton {
+  margin-top: -7px;
+}
+
 .info-box {
   animation: fadeInAnimation ease 0.3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 4px;
 }
 
 @keyframes fadeInAnimation {
@@ -88,8 +106,8 @@ button:active {
 
 .person {
   margin-top: 50px;
-  width: 500px;
-  max-width: 100%;
+  width: 80%;
+  /*max-width: 215px;*/
   position:  relative;
   padding: 20px;
   border: 2px solid #ccc;

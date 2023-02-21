@@ -1,8 +1,8 @@
-Hi Representative ${repname}
+Hi Representative ${replastname},
 
 My name is ${username}, and I am your constituent in district ${district}. I am writing to you to express my support for Beyond the Box and my hope for you to support this bill HB 427.
 
-Beyond the Box is an initiative to include system-impacted people (SIPs) in higher education. 
+Beyond the Box is an initiative to include system-impacted people (SIPs) in higher education.
 
 Reducing barriers for system-impacted people has been shown to:
 
