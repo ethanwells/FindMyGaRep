@@ -1,0 +1,13 @@
+Hi Representative ${repname}
+
+My name is ${username}, and I am your constituent in district ${district}. I am writing to you to express my support for Beyond the Box and my hope for you to support this bill HB 427.
+
+Beyond the Box is an initiative to include system-impacted people (SIPs) in higher education. 
+
+Reducing barriers for system-impacted people has been shown to:
+
+- Reduce recidivism: Initial studies report a recidivism rate of 5.6% for SIPs with a Bachelor’s degree. Georgia’s current recidivism rate hovers between 29-50%. Education can make a huge impact on reducing the change of future offenses, therefore increasing public safety!
+
+- Create a campus that includes everyone: Applicants with a criminal history are 2.5x more likely to get denied. Over 60% do not finish college applications when they encounter the question because they believe they will be rejected. Something as simple as removing the question will remove unnecessary obstacles for positive reentry and reintegration into society.
+
+HB 427 is important to me and our community. Please vote YES to reducing barriers to higher education so that we can have an education system in Georgia that gives everyone a chance at being a productive citizen of Georgia!
