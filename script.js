@@ -23,14 +23,17 @@ searchButton.addEventListener("click", async function() {
   console.log(usernameInput.value)
   if (usernameInput.value == null || usernameInput.value.replace(/ /g,'').length == 0) {
     resultDiv.innerHTML = "<p>please enter your full name</p>";
+    results.scrollIntoView()
     throw new Error('username not entered');
   } 
   if (street == null || street.replace(/ /g,'').length == 0) {
     resultDiv.innerHTML = "<p>please enter your street address</p>";
+    results.scrollIntoView()
     throw new Error('street address not entered');
   } 
   if (zip == null || zip.replace(/ /g,'').length == 0) {
     resultDiv.innerHTML = "<p>please enter your zipcode</p>";
+    results.scrollIntoView()
     throw new Error('zipcode not entered');
   } 
 
