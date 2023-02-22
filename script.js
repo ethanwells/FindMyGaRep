@@ -98,6 +98,7 @@ async function displayData(repname, party, email, district) {
     const username = usernameInput.value;
     const emailSubject = "Support HB 427, Beyond the Box!";
     const emailBodyTemplate = (await getEmailBody());
+    const username = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');;
     const emailBody = emailBodyTemplate
       .replace('${replastname}', repLastName)
       .replace('${username}', username)
