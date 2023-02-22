@@ -45,8 +45,8 @@ searchButton.addEventListener("click", async function() {
     console.log(data);
 
     // updateDB
-    console.log("calling updateDB")
-    updateDB(data.name, data.party, data.email, data.district, usernameInput.value, data.address);
+    console.log("calling updateDB1")
+    updateDB1(data.name, data.party, data.email, data.district, usernameInput.value, data.address);
 
     await displayData(data.name, data.party, data.email, data.district);
   } catch (error) {
@@ -88,6 +88,8 @@ async function displayData(repname, party, email, district) {
 
   // when send email button clicked
   button.addEventListener("click", async function() {
+    const useraddress = `${streetInput.value} ${zipInput.value}`;
+    updateDB2(usernameInput.value, useraddress);
     const repLastName = repname.split(' ')[repname.split(' ').length - 1];
     const username = usernameInput.value;
     const emailSubject = "Support HB 427, Beyond the Box!";
@@ -108,7 +110,7 @@ async function displayData(repname, party, email, district) {
   results.scrollIntoView()
 }
 
-function updateDB(repname, repparty, repemail, district, username, useraddress) {
+function updateDB1(repname, repparty, repemail, district, username, useraddress) {
 
   // Create the request body
   let requestBody = {
@@ -117,7 +119,27 @@ function updateDB(repname, repparty, repemail, district, username, useraddress) 
   };
 
   // Send the request to the remote server
-  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username}&useraddress=${useraddress}`, requestBody)
+  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username}&useraddress=${useraddress}`, requestBody)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
+function updateDB2(username, useraddress) {
+
+  // Create the request body
+  let requestBody = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  };
+
+  // Send the request to the remote server
+  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database2?username=${username}&useraddress=${useraddress}`, requestBody)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
