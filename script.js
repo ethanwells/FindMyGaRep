@@ -101,7 +101,7 @@ async function displayData(repname, party, email, district) {
     const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');;
     const emailBody = emailBodyTemplate
       .replace('${replastname}', repLastName)
-      .replace('${username}', username_formatted)
+      .replace(/\${username}/g, username_formatted)
       .replace('${district}', district)
       .replace(/\n/g, '%0D%0A');
     console.log(emailBody);
