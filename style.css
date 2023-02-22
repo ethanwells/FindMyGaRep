@@ -22,12 +22,14 @@ body {
 
 #sub-title {
   color: black;
+  margin-bottom: 13px;
 }
 
 
 input {
  display: block;
  border: none;
+ border: 1px solid white;
  border-radius: 10px;
  padding: 15px;
  margin-bottom: 10px;
@@ -57,6 +59,13 @@ button {
   background: var(--bg);
   transition: 0.2s;
   margin-top: 5px;
+}
+
+#searchButtonText {
+  margin-top: 4px;
+  margin-bottom:  4px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 button:hover {
@@ -139,9 +148,12 @@ button:active {
   background-color: #d1d5fe;
   margin-bottom: 10px;
   border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  max-width: 215px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width:  80vw;
+  max-width: 300px;
 }
 
 #container2 {
@@ -150,9 +162,12 @@ button:active {
   background-color: #d1d5fe;
   margin-bottom: 10px;
   border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  max-width: 215px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width:  80vw;
+  max-width: 300px;
 }
 
 #instructions {
@@ -163,15 +178,17 @@ button:active {
 #container3 {
   border-radius: 10px;
   padding-top: 5px;
-  padding-right: 10px;
   padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-left: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   background-color: #e0e0e0;
-  max-width: 215px;
+  width:  80vw;
+  max-width: 300px;
 }
 
 
