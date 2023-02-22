@@ -98,7 +98,7 @@ async function displayData(repname, party, email, district) {
     const username = usernameInput.value;
     const emailSubject = "Support HB 427, Beyond the Box!";
     const emailBodyTemplate = (await getEmailBody());
-    const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');;
+    const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     const emailBody = emailBodyTemplate
       .replace('${replastname}', repLastName)
       .replace(/\${username}/g, username_formatted)
@@ -117,6 +117,8 @@ async function displayData(repname, party, email, district) {
 
 function updateDB1(repname, repparty, repemail, district, username, useraddress) {
 
+  const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
   // Create the request body
   let requestBody = {
     method: 'POST',
@@ -124,7 +126,7 @@ function updateDB1(repname, repparty, repemail, district, username, useraddress)
   };
 
   // Send the request to the remote server
-  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username}&useraddress=${useraddress}`, requestBody)
+  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username_formatted}&useraddress=${useraddress}`, requestBody)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -136,6 +138,9 @@ function updateDB1(repname, repparty, repemail, district, username, useraddress)
 }
 
 function updateDB2(username, useraddress, district) {
+
+  const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
   // Create the request body
   let requestBody = {
     method: 'POST',
@@ -143,7 +148,7 @@ function updateDB2(username, useraddress, district) {
   };
 
   // Send the request to the remote server
-  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database2?username=${username}&useraddress=${useraddress}&district=${district}`, requestBody)
+  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database2?username=${username_formatted}&useraddress=${useraddress}&district=${district}`, requestBody)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
