@@ -132,7 +132,6 @@ function updateDB1(repname, repparty, repemail, district, username, useraddress)
   };
 
   // Send the request to the remote server
-  //  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username_formatted}&useraddress=${useraddress}`, requestBody)
   fetch(`https://${heroku_app_name}.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username_formatted}&useraddress=${useraddress}`, requestBody)
     .then(response => {
       if (!response.ok) {
