@@ -4,7 +4,7 @@
 }*/
 
 body {
-  background-color: white;
+  background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,8 +87,11 @@ button:active {
   text-decoration-color: #grey; 
 }
 
-#emailButton {
-  margin-top: -7px;
+#emailButtonText {
+  margin-top: 4px;
+  margin-bottom:  4px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .info-box {
@@ -100,8 +103,11 @@ button:active {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-right: 4px;
+  /*margin-right: 7px;*/
   margin-bottom: 25vh;
+
+  width:  80vw;
+  max-width: 300px;
 }
 
 @keyframes fadeInAnimation {
@@ -117,7 +123,7 @@ button:active {
 
 .person {
   margin-top: 50px;
-  width: 80%;
+  width: 100%;
   /*max-width: 215px;*/
   position:  relative;
   padding: 20px;
@@ -191,6 +197,11 @@ button:active {
   max-width: 300px;
 }
 
+#results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 @keyframes scale-up4 {
   20% {

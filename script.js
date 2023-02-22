@@ -88,7 +88,10 @@ async function displayData(repname, party, email, district) {
 
   const button = document.createElement("button");
   button.id = "emailButton";
-  button.innerText = "Send Email";
+  const email_button_prompt = document.createElement("h3");
+  email_button_prompt.id = "emailButtonText";
+  email_button_prompt.innerText = "Send Email";
+  button.appendChild(email_button_prompt);
 
   // when send email button clicked
   button.addEventListener("click", async function() {
