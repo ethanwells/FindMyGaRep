@@ -94,7 +94,7 @@ button:active {
   margin-right: 3px;
 }
 
-.info-box {
+#info-box {
   animation: fadeInAnimation ease 0.3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;

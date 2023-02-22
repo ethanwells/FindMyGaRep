@@ -73,7 +73,7 @@ async function getEmailBody() {
 // add rep info to html
 async function displayData(repname, party, email, district) {
   const div = document.createElement("div");
-  div.className = "info-box"; 
+  div.id = "info-box"; 
   div.classList.add("person");
 
 
@@ -93,8 +93,16 @@ async function displayData(repname, party, email, district) {
   email_button_prompt.innerText = "Send Email";
   button.appendChild(email_button_prompt);
 
+  div.appendChild(button);
+
+  results.appendChild(div);
+
+  results.scrollIntoView()
+
   // when send email button clicked
   button.addEventListener("click", async function() {
+    results.innerHTML = '';
+    console.log("results deleted");
     const useraddress = `${streetInput.value} ${zipInput.value}`;
     updateDB2(usernameInput.value, useraddress, district);
     const repLastName = repname.split(' ')[repname.split(' ').length - 1];
@@ -111,11 +119,6 @@ async function displayData(repname, party, email, district) {
     const emailCommand = `mailto:${email}?subject=${emailSubject}&body=${emailBody}`;
     window.location.href = emailCommand;
   });
-  div.appendChild(button);
-
-  results.appendChild(div);
-
-  results.scrollIntoView()
 }
 
 function updateDB1(repname, repparty, repemail, district, username, useraddress) {
