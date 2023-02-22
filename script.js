@@ -5,7 +5,7 @@ const zipInput = document.getElementById("zipcode");
 const usernameInput = document.getElementById("name");
 const resultDiv = document.getElementById("results");
 
-
+var heroku_app_name = config.heroku_app_name;
 
 
 
@@ -40,7 +40,7 @@ searchButton.addEventListener("click", async function() {
   // make GET request to server
   try {
     // make GET request to server
-    const response = await fetch(`https://obscure-beyond-79368.herokuapp.com/get_rep_info?streetAddress=${street}&zipcode=${zip}`);
+    const response = await fetch(`https://${heroku_app_name}.herokuapp.com/get_rep_info?streetAddress=${street}&zipcode=${zip}`);
     const data = await response.json();
 
     // update resultDiv with representative information
@@ -132,7 +132,8 @@ function updateDB1(repname, repparty, repemail, district, username, useraddress)
   };
 
   // Send the request to the remote server
-  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username_formatted}&useraddress=${useraddress}`, requestBody)
+  //  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username_formatted}&useraddress=${useraddress}`, requestBody)
+  fetch(`https://${heroku_app_name}.herokuapp.com/update_database1?repname=${repname}&repparty=${repparty}&repemail=${repemail}&repdistrict=${district}&username=${username_formatted}&useraddress=${useraddress}`, requestBody)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -154,7 +155,7 @@ function updateDB2(username, useraddress, district) {
   };
 
   // Send the request to the remote server
-  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database2?username=${username_formatted}&useraddress=${useraddress}&district=${district}`, requestBody)
+  fetch(`https://${heroku_app_name}.herokuapp.com/update_database2?username=${username_formatted}&useraddress=${useraddress}&district=${district}`, requestBody)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
