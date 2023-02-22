@@ -45,6 +45,7 @@ searchButton.addEventListener("click", async function() {
     console.log(data);
 
     // updateDB
+    console.log("UPDATED calling updateDB !!!!")
     console.log("calling updateDB1")
     updateDB1(data.name, data.party, data.email, data.district, usernameInput.value, data.address);
 
