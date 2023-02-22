@@ -89,7 +89,7 @@ async function displayData(repname, party, email, district) {
   // when send email button clicked
   button.addEventListener("click", async function() {
     const useraddress = `${streetInput.value} ${zipInput.value}`;
-    updateDB2(usernameInput.value, useraddress);
+    updateDB2(usernameInput.value, useraddress, district);
     const repLastName = repname.split(' ')[repname.split(' ').length - 1];
     const username = usernameInput.value;
     const emailSubject = "Support HB 427, Beyond the Box!";
@@ -130,8 +130,7 @@ function updateDB1(repname, repparty, repemail, district, username, useraddress)
     .catch(error => console.error('Error:', error));
 }
 
-function updateDB2(username, useraddress) {
-
+function updateDB2(username, useraddress, district) {
   // Create the request body
   let requestBody = {
     method: 'POST',
@@ -139,7 +138,7 @@ function updateDB2(username, useraddress) {
   };
 
   // Send the request to the remote server
-  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database2?username=${username}&useraddress=${useraddress}`, requestBody)
+  fetch(`https://obscure-beyond-79368.herokuapp.com/update_database2?username=${username}&useraddress=${useraddress}&district=${district}`, requestBody)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
