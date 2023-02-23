@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
       document.getElementById('blur-container').style.filter = 'none'; // remove the blur filter
       setTimeout(function() {
         results.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-      }, 1250);
+      }, 3000);
     }, 500); // wait for 1 second (1000 milliseconds)
   };
 });
