@@ -76,7 +76,10 @@ searchButton.addEventListener("click", async function() {
   } catch (error) {
     console.error(error);
     resultDiv.innerHTML = "<p>Error getting representative information. Please enter valid address, or try again later.</p>";
-    results.scrollIntoView()
+    results.scrollIntoView();
+    console.log("error caught");
+    console.log(error);
+    await logUserError(usernameInput.value, address, error);
   }
 });
 
@@ -128,11 +131,11 @@ async function displayData(repname, party, email, district) {
 
 
   // when send email button clicked
+  const useraddress = `${streetInput.value} ${zipInput.value}`;
   button.addEventListener("click", async function() {
     results.innerHTML = '';
     try {
       console.log("results deleted");
-      const useraddress = `${streetInput.value} ${zipInput.value}`;
       updateDB2(usernameInput.value, useraddress, district);
       const repLastName = repname.split(' ')[repname.split(' ').length - 1];
       const username = usernameInput.value;
@@ -148,7 +151,9 @@ async function displayData(repname, party, email, district) {
       const emailCommand = `mailto:${email}?subject=${emailSubject}&body=${emailBody}`;
       window.location.href = emailCommand;
     } catch (error) {
+      console.log("error caught");
       console.log(error);
+      await logUserError(usernameInput.value, useraddress, error);
     }
     postEmailInstructions();
   });
@@ -172,7 +177,7 @@ function postEmailInstructions() {
       results.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }, 1000);
     mymessage.innerHTML = '';
-    mymessage.innerText = "Having issues? Try using this website on mobile instead.";
+    mymessage.innerText = "Having issues? Try using this website on mobile and outside of instagram instead.";
     // make element with class=person border flash red
     var flashing = setInterval(function() {
       div.classList.toggle("flash-border");
@@ -230,6 +235,29 @@ function updateDB2(username, useraddress, district) {
     })
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
+}
+
+function logUserError(username, address, error) {
+  console.log("inside logUserError()");
+  const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+  // Create the request body
+  let requestBody = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  };
+
+  // Send the request to the remote server
+  fetch(`https://${heroku_app_name}.herokuapp.com/logUserError?username=${username_formatted}&useraddress=${address}&error=${error}`, requestBody)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+  console.log("user error successfully logged");
 }
 
 
