@@ -9,6 +9,18 @@ var heroku_app_name = "obscure-beyond-79368";
 
 
 
+window.addEventListener('load', function() {
+  var popup = document.getElementById('popup');
+  var acceptBtn = document.getElementById('popup-button');
+  acceptBtn.onclick = function() {
+    setTimeout(function() {
+      popup.style.display = 'none';
+      document.getElementById('blur-container').style.filter = 'none'; // remove the blur filter
+    }, 1000); // wait for 1 second (1000 milliseconds)
+  };
+});
+
+
 // initialize geocodio client with API key
 
 searchButton.addEventListener("click", async function() {

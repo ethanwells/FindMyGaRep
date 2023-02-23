@@ -11,6 +11,36 @@ body {
   font-family: Arial, sans-serif;
 }
 
+
+
+
+
+#popup {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #f1f1f1;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#popup-button-text {
+  margin-top: 2px;
+  margin-bottom:  2px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+
+#blur-container {
+  filter: blur(10px);
+}
+
+
 #title {
   font-size: 36px;
   text-decoration: underline;
