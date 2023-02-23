@@ -189,7 +189,6 @@ button:active {
 
 #container1 {
   justify-content: center;
-  /*old bg color:  d1d5fe*/
   background-color: #d1d5fe;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -241,6 +240,10 @@ button:active {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#made-by-text {
+  color:  #e0e0e0;
 }
 
 @keyframes scale-up4 {
