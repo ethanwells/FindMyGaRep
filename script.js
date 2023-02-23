@@ -9,6 +9,8 @@ var heroku_app_name = "obscure-beyond-79368";
 
 
 
+document.getElementById("loader").style.display = "none";
+
 window.addEventListener('load', function() {
   var popup = document.getElementById('popup');
   var acceptBtn = document.getElementById('popup-button');
@@ -27,6 +29,7 @@ window.addEventListener('load', function() {
 // initialize geocodio client with API key
 
 searchButton.addEventListener("click", async function() {
+  document.getElementById("loader").style.display = "block";
   resultDiv.innerHTML = '';
   // get user input values
   const street = streetInput.value;
@@ -66,8 +69,8 @@ searchButton.addEventListener("click", async function() {
     // updateDB
     console.log("UPDATED calling updateDB !!!!")
     console.log("calling updateDB1")
-    updateDB1(data.name, data.party, data.email, data.district, usernameInput.value, data.address);
     results.innerHTML = '';
+    updateDB1(data.name, data.party, data.email, data.district, usernameInput.value, data.address);
     await displayData(data.name, data.party, data.email, data.district);
   } catch (error) {
     console.error(error);
@@ -90,6 +93,7 @@ async function getEmailBody() {
 
 // add rep info to html
 async function displayData(repname, party, email, district) {
+  document.getElementById("loader").style.display = "none";
   const div = document.createElement("div");
   div.id = "info-box"; 
   div.classList.add("person");
