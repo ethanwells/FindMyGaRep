@@ -54,6 +54,7 @@ searchButton.addEventListener("click", async function() {
 
   // make GET request to server
   try {
+    document.getElementById("searchButtonText").innerHTML = "Loading";
     // make GET request to server
     const response = await fetch(`https://${heroku_app_name}.herokuapp.com/get_rep_info?streetAddress=${street}&zipcode=${zip}`);
     const data = await response.json();
@@ -66,7 +67,7 @@ searchButton.addEventListener("click", async function() {
     console.log("UPDATED calling updateDB !!!!")
     console.log("calling updateDB1")
     updateDB1(data.name, data.party, data.email, data.district, usernameInput.value, data.address);
-
+    results.innerHTML = '';
     await displayData(data.name, data.party, data.email, data.district);
   } catch (error) {
     console.error(error);
@@ -117,7 +118,10 @@ async function displayData(repname, party, email, district) {
 
   setTimeout(function() {
     results.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    document.getElementById("searchButtonText").innerHTML = "Search";
   }, 1000);
+
+
 
   // when send email button clicked
   button.addEventListener("click", async function() {
