@@ -242,6 +242,12 @@ button:active {
   align-items: center;
 }
 
+#made-by {
+  width:  80vw;
+  max-width: 300px;
+  text-align: center;
+}
+
 #made-by-text {
   color:  #e0e0e0;
 }
