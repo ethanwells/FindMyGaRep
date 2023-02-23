@@ -66,17 +66,17 @@ searchButton.addEventListener("click", async function() {
     console.log("data: !!!");
     console.log(data);
 
-    // updateDB
+    // update db
     console.log("UPDATED calling updateDB !!!!")
     console.log("calling updateDB1")
-    results.innerHTML = '';
     updateDB1(data.name, data.party, data.email, data.district, usernameInput.value, data.address);
+    
+    results.innerHTML = '';
     await displayData(data.name, data.party, data.email, data.district);
   } catch (error) {
     console.error(error);
     resultDiv.innerHTML = "<p>Error getting representative information. Please enter valid address, or try again later.</p>";
     results.scrollIntoView()
-
   }
 });
 
