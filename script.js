@@ -111,7 +111,10 @@ async function displayData(repname, party, email, district) {
 
   results.appendChild(div);
 
-  results.scrollIntoView()
+
+  setTimeout(function() {
+    results.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }, 1000);
 
   // when send email button clicked
   button.addEventListener("click", async function() {
@@ -153,7 +156,9 @@ function postEmailInstructions() {
 
   // wait 5 seconds before changing the message
   setTimeout(function() {
-    results.scrollIntoView();
+    setTimeout(function() {
+      results.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    }, 1000);
     mymessage.innerHTML = '';
     mymessage.innerText = "Having issues? Try using this website on mobile instead.";
     // make element with class=person border flash red
