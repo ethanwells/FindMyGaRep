@@ -156,6 +156,7 @@ function postEmailInstructions() {
   mymessage.innerText = "You should now see a prompt to open your email";
   div.appendChild(mymessage);
   results.appendChild(div);
+  results.scrollIntoView();
 
   // wait 5 seconds before changing the message
   setTimeout(function() {
