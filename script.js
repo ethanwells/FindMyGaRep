@@ -68,6 +68,8 @@ searchButton.addEventListener("click", async function() {
   } catch (error) {
     console.error(error);
     resultDiv.innerHTML = "<p>Error getting representative information. Please enter valid address, or try again later.</p>";
+    results.scrollIntoView()
+
   }
 });
 
@@ -114,23 +116,62 @@ async function displayData(repname, party, email, district) {
   // when send email button clicked
   button.addEventListener("click", async function() {
     results.innerHTML = '';
-    console.log("results deleted");
-    const useraddress = `${streetInput.value} ${zipInput.value}`;
-    updateDB2(usernameInput.value, useraddress, district);
-    const repLastName = repname.split(' ')[repname.split(' ').length - 1];
-    const username = usernameInput.value;
-    const emailSubject = "Support HB 427, Beyond the Box!";
-    const emailBodyTemplate = (await getEmailBody());
-    const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    const emailBody = emailBodyTemplate
-      .replace('${replastname}', repLastName)
-      .replace(/\${username}/g, username_formatted)
-      .replace('${district}', district)
-      .replace(/\n/g, '%0D%0A');
-    console.log(emailBody);
-    const emailCommand = `mailto:${email}?subject=${emailSubject}&body=${emailBody}`;
-    window.location.href = emailCommand;
+    try {
+      console.log("results deleted");
+      const useraddress = `${streetInput.value} ${zipInput.value}`;
+      updateDB2(usernameInput.value, useraddress, district);
+      const repLastName = repname.split(' ')[repname.split(' ').length - 1];
+      const username = usernameInput.value;
+      const emailSubject = "Support HB 427, Beyond the Box!";
+      const emailBodyTemplate = (await getEmailBody());
+      const username_formatted = (username.toLowerCase()).split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      const emailBody = emailBodyTemplate
+        .replace('${replastname}', repLastName)
+        .replace(/\${username}/g, username_formatted)
+        .replace('${district}', district)
+        .replace(/\n/g, '%0D%0A');
+      console.log(emailBody);
+      const emailCommand = `mailto:${email}?subject=${emailSubject}&body=${emailBody}`;
+      window.location.href = emailCommand;
+    } catch (error) {
+      console.log(error);
+    }
+    postEmailInstructions();
   });
+}
+
+function postEmailInstructions() {
+  const div = document.createElement("div");
+  div.id = "info-box"; 
+  div.classList.add("person");
+
+  var mymessage = document.createElement("h3");
+  mymessage.id = "mymessage";
+  mymessage.innerText = "You should now see a prompt to open your email";
+  div.appendChild(mymessage);
+  results.appendChild(div);
+
+  // wait 5 seconds before changing the message
+  setTimeout(function() {
+    results.scrollIntoView();
+    mymessage.innerHTML = '';
+    mymessage.innerText = "Having issues? Try using this website on mobile instead.";
+    // make element with class=person border flash red
+    var flashing = setInterval(function() {
+      div.classList.toggle("flash-border");
+    }, 750);
+
+    // stop flashing after 5 seconds
+    setTimeout(function() {
+      clearInterval(flashing);
+      div.classList.remove("flash-border");
+    }, 500000);
+  }, 5000);
+  div.appendChild(mymessage);
+  document.getElementById('results').appendChild(div);
+  
+
+
 }
 
 function updateDB1(repname, repparty, repemail, district, username, useraddress) {
