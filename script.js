@@ -16,6 +16,9 @@ window.addEventListener('load', function() {
     setTimeout(function() {
       popup.style.display = 'none';
       document.getElementById('blur-container').style.filter = 'none'; // remove the blur filter
+      setTimeout(function() {
+        results.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+      }, 1250);
     }, 500); // wait for 1 second (1000 milliseconds)
   };
 });

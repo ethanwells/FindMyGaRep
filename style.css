@@ -226,6 +226,7 @@ button:active {
   padding-left: 15px;
   padding-right: 15px;
   padding-left: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
