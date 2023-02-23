@@ -170,7 +170,7 @@ function postEmailInstructions() {
       div.classList.toggle("flash-border");
     }, 750);
 
-    // stop flashing after 5 seconds
+    // stop flashing after 500 seconds
     setTimeout(function() {
       clearInterval(flashing);
       div.classList.remove("flash-border");
@@ -178,9 +178,6 @@ function postEmailInstructions() {
   }, 5000);
   div.appendChild(mymessage);
   document.getElementById('results').appendChild(div);
-  
-
-
 }
 
 function updateDB1(repname, repparty, repemail, district, username, useraddress) {
