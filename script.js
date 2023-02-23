@@ -5,7 +5,7 @@ const zipInput = document.getElementById("zipcode");
 const usernameInput = document.getElementById("name");
 const resultDiv = document.getElementById("results");
 
-var heroku_app_name = config.heroku_app_name;
+var heroku_app_name = "obscure-beyond-79368";
 
 
 
